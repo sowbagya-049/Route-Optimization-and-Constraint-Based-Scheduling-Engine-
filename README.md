@@ -158,12 +158,6 @@ inputs/input1.json
 
 ## How to Run
 
-### Run with Default Input
-
-```
-python main.py
-```
-
 ### Run with Custom Input
 
 ```
