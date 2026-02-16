@@ -1,0 +1,21 @@
+--- ROUTE OPTIMIZATION RESULT ---
+Strategy: Nearest Neighbor
+
+Best Route:
+HQ -> S1 -> S2 -> S3 -> S4 -> S5 -> S6 -> HQ
+
+Total Travel Time:  120.0
+Total Service Time: 90.0
+Total Idle Time:    0.0
+Total Duration:     210.0
+
+Visited Locations:
+ - S1: Arrival=10.0, Wait=0.0, Start=10.0, Service=15, Finish=25.0
+ - S2: Arrival=35.0, Wait=0.0, Start=35.0, Service=15, Finish=50.0
+ - S3: Arrival=60.0, Wait=0.0, Start=60.0, Service=15, Finish=75.0
+ - S4: Arrival=85.0, Wait=0.0, Start=85.0, Service=15, Finish=100.0
+ - S5: Arrival=110.0, Wait=0.0, Start=110.0, Service=15, Finish=125.0
+ - S6: Arrival=135.0, Wait=0.0, Start=135.0, Service=15, Finish=150.0
+
+Skipped Locations:
+ None
