@@ -1,19 +1,18 @@
 --- ROUTE OPTIMIZATION RESULT ---
-Strategy: Earliest Deadline
+Strategy: Nearest Neighbor
 
 Best Route:
-HQ -> C -> D -> A -> B -> HQ
+HQ -> A -> B -> C -> HQ
 
-Total Travel Time:  85.0
-Total Service Time: 20.0
-Total Idle Time:    0.0
-Total Duration:     105.0
+Total Travel Time:  20.0
+Total Service Time: 15.0
+Total Idle Time:    45.0
+Total Duration:     80.0
 
 Visited Locations:
- - C: Arrival=30.0, Wait=0.0, Start=30.0, Service=5, Finish=35.0
- - D: Arrival=40.0, Wait=0.0, Start=40.0, Service=5, Finish=45.0
- - A: Arrival=70.0, Wait=0.0, Start=70.0, Service=5, Finish=75.0
- - B: Arrival=80.0, Wait=0.0, Start=80.0, Service=5, Finish=85.0
+ - A: Arrival=5.0, Wait=45.0, Start=50.0, Service=5, Finish=55.0
+ - B: Arrival=60.0, Wait=0.0, Start=60.0, Service=5, Finish=65.0
+ - C: Arrival=70.0, Wait=0.0, Start=70.0, Service=5, Finish=75.0
 
 Skipped Locations:
  None

@@ -1,20 +1,17 @@
 --- ROUTE OPTIMIZATION RESULT ---
-Strategy: Nearest Neighbor
+Strategy: Shortest Service
 
 Best Route:
-HQ -> L1 -> L2 -> L3 -> L4 -> L5 -> HQ
+HQ -> B -> A -> HQ
 
-Total Travel Time:  40.0
-Total Service Time: 75.0
+Total Travel Time:  25.0
+Total Service Time: 70.0
 Total Idle Time:    0.0
-Total Duration:     115.0
+Total Duration:     95.0
 
 Visited Locations:
- - L1: Arrival=5.0, Wait=0.0, Start=5.0, Service=15, Finish=20.0
- - L2: Arrival=22.0, Wait=0.0, Start=22.0, Service=15, Finish=37.0
- - L3: Arrival=40.0, Wait=0.0, Start=40.0, Service=15, Finish=55.0
- - L4: Arrival=57.0, Wait=0.0, Start=57.0, Service=15, Finish=72.0
- - L5: Arrival=75.0, Wait=0.0, Start=75.0, Service=15, Finish=90.0
+ - B: Arrival=10.0, Wait=0.0, Start=10.0, Service=10, Finish=20.0
+ - A: Arrival=25.0, Wait=0.0, Start=25.0, Service=60, Finish=85.0
 
 Skipped Locations:
  None

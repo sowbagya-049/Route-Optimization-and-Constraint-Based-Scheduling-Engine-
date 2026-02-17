@@ -2,16 +2,15 @@
 Strategy: Nearest Neighbor
 
 Best Route:
-HQ -> Y -> HQ
+HQ -> HQ
 
-Total Travel Time:  20.0
-Total Service Time: 10.0
+Total Travel Time:  0.0
+Total Service Time: 0.0
 Total Idle Time:    0.0
-Total Duration:     30.0
+Total Duration:     0.0
 
 Visited Locations:
- - Y: Arrival=10.0, Wait=0.0, Start=10.0, Service=10, Finish=20.0
 
 Skipped Locations:
- - X: Arrived at 35.0, latest allowed 20.0
- - Z: Arrived at 65.0, latest allowed 30.0
+ - A: Arrived at 50.0, latest allowed 20.0
+ - B: Arrived at 60.0, latest allowed 15.0

@@ -2,17 +2,15 @@
 Strategy: Nearest Neighbor
 
 Best Route:
-HQ -> P1 -> P2 -> P3 -> HQ
+HQ -> A -> HQ
 
-Total Travel Time:  85.0
-Total Service Time: 30.0
-Total Idle Time:    40.0
-Total Duration:     155.0
+Total Travel Time:  20.0
+Total Service Time: 10.0
+Total Idle Time:    0.0
+Total Duration:     30.0
 
 Visited Locations:
- - P1: Arrival=10.0, Wait=40.0, Start=50.0, Service=10, Finish=60.0
- - P2: Arrival=75.0, Wait=0.0, Start=75.0, Service=10, Finish=85.0
- - P3: Arrival=95.0, Wait=0.0, Start=95.0, Service=10, Finish=105.0
+ - A: Arrival=10.0, Wait=0.0, Start=10.0, Service=10, Finish=20.0
 
 Skipped Locations:
  None
