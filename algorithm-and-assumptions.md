@@ -35,17 +35,6 @@ Instead of relying on a single rule, the system generates multiple possible visi
   * Visits locations that require less service time first.
   * Helps complete more visits within limited time.
 
-* **Adaptive Strategy (Dynamic Decision-Based)**
-
-  * At each step, evaluates all remaining locations.
-  * Considers:
-
-    * Distance from current position
-    * Expected arrival time
-    * Time window constraints
-    * Waiting time if arriving early
-  * Assigns a score and chooses the best next location dynamically.
-
 Each strategy produces one possible route.
 
 **3. Time Simulation Engine**
@@ -128,3 +117,4 @@ The solution strictly respects the required constraints:
   * Fully manual
   * Easy to understand
   * Within the assignment rules
+
