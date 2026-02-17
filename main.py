@@ -144,6 +144,16 @@ class RouteStrategies:
         self.service_times = data.get('service_time', {})
         self.time_windows = data.get('time_window', {})
 
+    def _bubble_sort(self, locs, key_func):
+        n = len(locs)
+        for i in range(n):
+            for j in range(0, n - i - 1):
+                val1 = key_func(locs[j])
+                val2 = key_func(locs[j+1])
+                if val1 > val2:
+                    locs[j], locs[j+1] = locs[j+1], locs[j]
+        return locs
+
     # pick nearest location each time
     def get_nearest_neighbor_route(self):
         unvisited = list(self.locations)
@@ -168,26 +178,12 @@ class RouteStrategies:
     # sort by deadline using bubble sort
     def get_earliest_deadline_first_route(self):
         locs = list(self.locations)
-        n = len(locs)
-        for i in range(n):
-            for j in range(0, n - i - 1):
-                deadline1 = self.time_windows.get(locs[j], [0, 999999])[1]
-                deadline2 = self.time_windows.get(locs[j+1], [0, 999999])[1]
-                if deadline1 > deadline2:
-                    locs[j], locs[j+1] = locs[j+1], locs[j]
-        return locs
+        return self._bubble_sort(locs, lambda loc: self.time_windows.get(loc, [0, 999999])[1])
 
-    # sort by service time using selection sort
+    # sort by service time using bubble sort
     def get_shortest_service_time_first_route(self):
         locs = list(self.locations)
-        n = len(locs)
-        for i in range(n):
-            min_idx = i
-            for j in range(i + 1, n):
-                if self.service_times.get(locs[j], 0) < self.service_times.get(locs[min_idx], 0):
-                    min_idx = j
-            locs[i], locs[min_idx] = locs[min_idx], locs[i]
-        return locs
+        return self._bubble_sort(locs, lambda loc: self.service_times.get(loc, 0))
 
     # adaptive - pick best location based on current time
     def get_adaptive_route(self):
