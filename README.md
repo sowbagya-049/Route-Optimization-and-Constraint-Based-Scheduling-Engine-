@@ -15,7 +15,7 @@ The solution is built using **greedy heuristic methods** and does not use any ex
 
 ## Algorithms Used
 
-This project uses a **Greedy Heuristic Optimization** approach with four classic strategies:
+This project uses a **Greedy Heuristic Optimization** approach with three classic strategies:
 
 ### 1. Nearest Neighbor
 
@@ -31,17 +31,6 @@ This project uses a **Greedy Heuristic Optimization** approach with four classic
 
 * Locations with smaller service durations are visited earlier
 * Helps complete more visits in limited time
-
-### 4. Adaptive Heuristic Strategy
-
-* Dynamically selects the next best location based on:
-
-  * Distance
-  * Arrival time
-  * Waiting time
-  * Time window feasibility
-* Prefers locations that can be served immediately
-* Avoids locations that will be reached too late
 
 
 ## Final Route Selection Logic
@@ -74,7 +63,6 @@ The system works in the following steps:
    * Nearest Neighbor
    * Earliest Deadline First
    * Shortest Service Time
-   * Adaptive Strategy
 
 4. Simulate time flow for each route:
 
