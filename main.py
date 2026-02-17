@@ -144,15 +144,8 @@ class RouteStrategies:
         self.service_times = data.get('service_time', {})
         self.time_windows = data.get('time_window', {})
 
-    def _bubble_sort(self, locs, key_func):
-        n = len(locs)
-        for i in range(n):
-            for j in range(0, n - i - 1):
-                val1 = key_func(locs[j])
-                val2 = key_func(locs[j+1])
-                if val1 > val2:
-                    locs[j], locs[j+1] = locs[j+1], locs[j]
-        return locs
+    def _sort_locations(self, locs, key_func):
+        return sorted(locs, key=key_func)
 
     # pick nearest location each time
     def get_nearest_neighbor_route(self):
@@ -175,15 +168,15 @@ class RouteStrategies:
                 break
         return route
 
-    # sort by deadline using bubble sort
+    # sort by deadline
     def get_earliest_deadline_first_route(self):
         locs = list(self.locations)
-        return self._bubble_sort(locs, lambda loc: self.time_windows.get(loc, [0, 999999])[1])
+        return self._sort_locations(locs, lambda loc: self.time_windows.get(loc, [0, 999999])[1])
 
-    # sort by service time using bubble sort
+    # sort by service time
     def get_shortest_service_time_first_route(self):
         locs = list(self.locations)
-        return self._bubble_sort(locs, lambda loc: self.service_times.get(loc, 0))
+        return self._sort_locations(locs, lambda loc: self.service_times.get(loc, 0))
 
 def select_best_route(results):
     best_strategy = None
