@@ -116,7 +116,7 @@ class TimeSimulationEngine:
             state.current_time = finish
             state.current_location = next_loc
 
-        # go back to HQ
+        #go back to HQ
         if state.current_location in self.distances:
             to_hq = self.distances[state.current_location].get('HQ', 0)
         else:
@@ -133,7 +133,7 @@ class TimeSimulationEngine:
         res.visit_details = state.visit_details
         return res
 
-# strategies
+#strategies
 class RouteStrategies:
     def __init__(self, data):
         self.locations = []
@@ -184,81 +184,6 @@ class RouteStrategies:
     def get_shortest_service_time_first_route(self):
         locs = list(self.locations)
         return self._bubble_sort(locs, lambda loc: self.service_times.get(loc, 0))
-
-    # adaptive - pick best location based on current time
-    def get_adaptive_route(self):
-        unvisited = list(self.locations)
-        current = 'HQ'
-        current_time = 0.0
-        route = []
-        
-        while len(unvisited) > 0:
-            best_loc = None
-            best_score = -999999.0
-            
-            for loc in unvisited:
-                # get distance and arrival time
-                if current in self.distances:
-                    dist = self.distances[current].get(loc, 999999)
-                else:
-                    dist = 999999
-                
-                arrive_time = current_time + dist
-                
-                # get time window
-                window = self.time_windows.get(loc, [0, 999999])
-                start_time = float(window[0])
-                end_time = float(window[1])
-                
-                # calculate score
-                score = 0.0
-                
-                # too late - very bad
-                if arrive_time > end_time:
-                    score = -999999.0
-                # within window - good
-                elif arrive_time >= start_time and arrive_time <= end_time:
-                    score = 1000.0 - dist  # prefer closer
-                # too early - check wait time
-                else:
-                    wait = start_time - arrive_time
-                    # short wait is ok
-                    if wait < 10:
-                        score = 500.0 - dist - wait
-                    # long wait is bad
-                    else:
-                        score = 100.0 - dist - wait
-                
-                if score > best_score:
-                    best_score = score
-                    best_loc = loc
-            
-            if best_loc and best_score > -999999.0:
-                route.append(best_loc)
-                unvisited.remove(best_loc)
-                
-                # update time
-                if current in self.distances:
-                    dist = self.distances[current].get(best_loc, 0)
-                else:
-                    dist = 0
-                    
-                arrive_time = current_time + dist
-                window = self.time_windows.get(best_loc, [0, 999999])
-                start_time = float(window[0])
-                
-                if arrive_time < start_time:
-                    current_time = start_time
-                else:
-                    current_time = arrive_time
-                    
-                service = self.service_times.get(best_loc, 0)
-                current_time += service
-                current = best_loc
-            else:
-                break
-                
-        return route
 
 def select_best_route(results):
     best_strategy = None
@@ -346,8 +271,7 @@ def main():
     routes = {
         "Nearest Neighbor": strategies.get_nearest_neighbor_route(),
         "Earliest Deadline": strategies.get_earliest_deadline_first_route(),
-        "Shortest Service": strategies.get_shortest_service_time_first_route(),
-        "Adaptive": strategies.get_adaptive_route()
+        "Shortest Service": strategies.get_shortest_service_time_first_route()
     }
     
     engine = TimeSimulationEngine(data)
